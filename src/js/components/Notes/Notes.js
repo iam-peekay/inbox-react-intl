@@ -8,14 +8,6 @@ import styles from './Notes.scss';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
-const messages = definedMessages({
-  noteOne: {
-    id: 'noteOne',
-    defaultMessage: '{text}',
-  }
-});
-
-
 class Notes extends Component {
   renderNotes = () => {
     const { notes, intl } = this.props;
