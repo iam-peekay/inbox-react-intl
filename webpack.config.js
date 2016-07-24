@@ -1,10 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const entry = [
   'webpack-dev-server/client?http://localhost:3000', // Needed for hot reloading
-  path.join(__dirname, 'src/js/app.js') // Start with js/app.js
+  path.join(__dirname, 'src/js/index.js') // Start with js/index.js
 ];
 // Output
 const output = { // Compile into build/ directory
@@ -13,7 +14,6 @@ const output = { // Compile into build/ directory
   publicPath: '/build/',
 };
 
-const cssLoaders = 'style-loader!css-loader!';
 // Hot module replacement plugin
 const plugins = [
   new webpack.HotModuleReplacementPlugin(), // Make hot loading work
@@ -26,8 +26,11 @@ const plugins = [
 
 const loaders = [
   { test: /\.js$/, loader: 'babel', exclude: path.join(__dirname, '/node_modules/') },
-  { test: /\.jsx$/, loader: 'babel', exclude: path.join(__dirname, '/node_modules/') },
-  { test: /\.css$/, loader: cssLoaders },
+  { test: /\.scss$/, loader: ExtractTextPlugin.extract(
+    'style-loader',
+    'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!resolve-url!sass?outputStyle=expanded'
+  )},
+  { test: /\.css$/, loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[local]!resolve-url?outputStyle=expanded' },
   { test: /\.jpe?g$|\.gif$|\.png$/i, loader: 'url-loader?limit=8000' },
   { test: /\.json$/, loader: 'json' },
 ];
@@ -40,6 +43,11 @@ const preLoaders = [
   }
 ];
 
+const resolve = {
+  extensions: ['', '.js', '.json'],
+  root: path.resolve(__dirname, './src'),
+};
+
 module.exports = {
   entry: entry,
   output: output,
@@ -47,6 +55,7 @@ module.exports = {
     preLoaders: preLoaders,
     loaders: loaders
   },
+  resolve: resolve,
   plugins: plugins,
   target: 'web', // Make web variables accessible to webpack, e.g. window
   stats: false, // Don't show stats in the console

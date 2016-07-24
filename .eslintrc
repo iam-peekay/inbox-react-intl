@@ -12,5 +12,6 @@
     },
     "rules": {
       "react/prefer-stateless-function": 0,
+      "react/jsx-curly-spacing": 0,
     }
 }

@@ -1,0 +1,19 @@
+:global {
+  html, body {
+    height: 100%;
+  }
+  body {
+    font-family: 'Roboto' Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #root {
+    display: flex;
+    height: 100%;
+  }
+}

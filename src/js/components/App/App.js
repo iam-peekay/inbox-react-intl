@@ -5,7 +5,7 @@ class App extends Component {
     return (
       <div>
         <h3> Hello Preethi! </h3>
-        {this.props.children}
+        { this.props.children }
       </div>
     );
   }
@@ -17,4 +17,3 @@ App.propTypes = {
 
 export default App;
 
-// { this.props.children }
