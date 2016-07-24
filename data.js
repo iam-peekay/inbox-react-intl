@@ -1,19 +1,29 @@
 export default {
-  name: "Preethi",
-  messages: [
+  name: 'Preethi',
+  notes: [
     {
       id: 1,
-      subject: "Agenda for team meeting",
-      message: "Hi Team. Please find attached the agenda for Monday's team meeting. Looking forward to the discussion!",
-      read: false,
-      receivedAt: 1469336316043,
+      text: 'Draft agenda for engineering team meeting',
+      completed: false,
+      createdAt: 1469336316043,
     },
     {
       id: 2,
-      subject: "Welcome to Company X!",
-      message: "Hi Preethi. Welcome to the company! We are so excited to have you. Please follow the instructions in the attached PDF to help you get started on your first day. If you have any questions, email me at person@company.com.",
-      read: false,
-      receivedAt: 1469336288833,
-    }
-  ]
+      text: 'Fix user sign up flow bug (ABC-1234)',
+      completed: false,
+      createdAt: 1469336288833,
+    },
+    {
+      id: 3,
+      text: 'Implement support for debit cards',
+      completed: true,
+      createdAt: 1469332088829,
+    },
+    {
+      id: 4,
+      text: 'Send email regarding team meeting format',
+      completed: true,
+      createdAt: 1469332888903,
+    },
+  ],
 };

@@ -4,31 +4,31 @@ import styles from './Header.scss';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
-const i18nKey = 'Header.8ks82la';
-
 class SubHeader extends Component {
   render() {
+    const { unCompletedCount } = this.props;
+
     return (
       <div className={ cx('container') }>
         <div className={ cx('text', 'subheader-text') }>
           <FormattedMessage
-            id={ `${i18nKey}.unreadCount` }
-            defaultMessage={ 'You have {unreadCount} unread {messages}' }
+            id={ 'SubHeader.unCompletedCount' }
+            defaultMessage={ 'You have {unCompletedCount} uncompleted {notes}' }
             values={{
-              unreadCount: (
+              unCompletedCount: (
                 <b>
                   <FormattedNumber
-                    value={this.props.unreadCount}
+                    value={unCompletedCount}
                   />
                 </b>
               ),
-              messages: (
+              notes: (
                 <FormattedPlural
-                  value={this.props.unreadCount}
-                  one="message"
-                  other="messages"
+                  value={unCompletedCount}
+                  one="note"
+                  other="notes"
                 />
-              )
+              ),
             }}
           />
         </div>
@@ -38,7 +38,7 @@ class SubHeader extends Component {
 }
 
 SubHeader.propTypes = {
-  unreadCount: PropTypes.number.isRequired,
+  unCompletedCount: PropTypes.number.isRequired,
 };
 
 export default SubHeader;

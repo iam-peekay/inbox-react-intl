@@ -1,5 +1,6 @@
 {
   "extends": "airbnb",
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "node": true,
@@ -14,6 +15,9 @@
     "react/prefer-stateless-function": 0,
     "react/jsx-curly-spacing": 0,
   },
+  "plugins": [
+    "jsx-a11y"
+  ],
   "settings": {
     "import/resolver": "webpack",
   },

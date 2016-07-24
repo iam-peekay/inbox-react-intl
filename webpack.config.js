@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const entry = [
+  'babel-polyfill',
   'webpack-dev-server/client?http://localhost:3000', // Needed for hot reloading
   path.join(__dirname, 'src/js/index.js') // Start with js/index.js
 ];
