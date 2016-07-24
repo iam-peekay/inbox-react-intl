@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development node server.js"
+    "start": "cross-env NODE_ENV=development node server.js",
+    "build:langs": "./node_modules/.bin/babel-node src/utils/translator.js"
   },
   "author": "Preethi Kasireddy",
   "license": "ISC",
@@ -53,7 +54,10 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "fs": "0.0.2",
+    "glob": "^7.0.5",
     "lodash": "^4.13.1",
+    "mkdirp": "^0.5.1",
     "path": "^0.12.7",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",

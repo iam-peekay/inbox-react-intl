@@ -13,9 +13,9 @@ class Note extends Component {
           {completed ? (
             <span>
               <FormattedMessage
-                id={ '{id}' }
+                id={ `Notes.${notes[id]}` }
                 defaultMessage={ '{text}' }
-                values={{ text, id: `Note.text.${id}` }}
+                values={{ text }}
               />
               <span className={ cx('check-mark') }> ✓ </span>
               <div className={ cx('created-at') }>
@@ -28,9 +28,9 @@ class Note extends Component {
             <span>
               <b>
                 <FormattedMessage
-                  id={ '{id}' }
+                  id={ `Notes.${notes[id]}` }
                   defaultMessage={ '{text}' }
-                  values={{ text, id: `Note.text.${id}` }}
+                  values={{ text }}
                 />
               </b>
               <div className={ cx('created-at') }>
