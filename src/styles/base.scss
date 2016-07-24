@@ -1,9 +1,13 @@
 :global {
-  html, body {
+  html {
     height: 100%;
   }
   body {
-    font-family: 'Roboto' Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    width: 100%;
+    float: left;
+    background-color: #666A86;
+    font-family: 'Roboto', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    color: #EEEEFF;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }

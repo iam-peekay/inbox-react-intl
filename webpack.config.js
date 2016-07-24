@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const entry = [
   'webpack-dev-server/client?http://localhost:3000', // Needed for hot reloading
@@ -21,15 +20,12 @@ const plugins = [
   new HtmlWebpackPlugin({
     template: 'index.html', // Move the index.html file
     inject: true
-  })
+  }),
 ];
 
 const loaders = [
   { test: /\.js$/, loader: 'babel', exclude: path.join(__dirname, '/node_modules/') },
-  { test: /\.scss$/, loader: ExtractTextPlugin.extract(
-    'style-loader',
-    'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!resolve-url!sass?outputStyle=expanded'
-  )},
+  { test: /\.scss$/, loaders: ["style", "css", "sass"] },
   { test: /\.css$/, loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[local]!resolve-url?outputStyle=expanded' },
   { test: /\.jpe?g$|\.gif$|\.png$/i, loader: 'url-loader?limit=8000' },
   { test: /\.json$/, loader: 'json' },

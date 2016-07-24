@@ -1,19 +1,17 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
+import Header from './../Header/index';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <h3> Hello Preethi! </h3>
-        { this.props.children }
-      </div>
-    );
-  }
-}
+const App = (props) => (
+  <div>
+    <Header
+      name={"Preethi"}
+      unreadCount={"4"}
+    />
+  </div>
+);
 
 App.propTypes = {
   children: PropTypes.node,
 };
 
 export default App;
-
