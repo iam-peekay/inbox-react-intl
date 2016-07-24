@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { FormattedMessage, FormattedPlural, FormattedNumber } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
+import SubHeader from './SubHeader';
 import styles from './Header.scss';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
@@ -10,13 +11,16 @@ class Header extends Component {
   render() {
     return (
       <div className={ cx('container') }>
-        <div className={ cx('text') }>
+        <div className={ cx('text', 'header-text') }>
           <FormattedMessage
             id={ `${i18nKey}.greeting` }
             defaultMessage={ 'Welcome to your inbox, {name}!' }
             values={{ name: this.props.name }}
           />
         </div>
+        <SubHeader
+          unreadCount={ this.props.unreadCount }
+        />
       </div>
     );
   }
@@ -28,24 +32,3 @@ Header.propTypes = {
 };
 
 export default Header;
-
-// <div>
-//   <FormattedMessage
-//     id={ `i18nKey.unreadCount` }
-//     defaultMessage={ 'You have {unreadCount} unread {messages}.' }
-//     values={{
-//       unreadCount: {
-//         <FormattedNumber
-//           value={props.unreadCount}
-//         />
-//       },
-//       messages: {
-//         <FormattedPlural
-//           value={props.unreadCount}
-//           one="message"
-//           other="messages"
-//         />
-//       }
-//     }}
-//   />
-// </div>

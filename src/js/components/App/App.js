@@ -1,10 +1,11 @@
 import React, { PropTypes } from 'react';
 import Header from './../Header/index';
+import Data from './../../../../data';
 
 const App = (props) => (
   <div>
     <Header
-      name={"Preethi"}
+      name={ Data.name }
       unreadCount={"4"}
     />
   </div>
