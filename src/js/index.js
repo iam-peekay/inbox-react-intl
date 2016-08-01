@@ -19,12 +19,37 @@ const language = (navigator.languages && navigator.languages[0]) ||
 const lc = language.toLowerCase().split(/[_-\s]+/)[0];
 
 // Try full locale, fallback to locale without region code, fallback to en
-const messages = localeData[language] || localeData[lc] || localeData.en;
+const messages = localeData[lc] || localeData[language] || localeData.en;
 
 // Render our root component into the div with id "root"
-render(
-  <IntlProvider locale={language} messages={messages}>
-    <App />
-  </IntlProvider>,
-  document.getElementById('root')
-);
+
+// If browser doesn't support Intl (i.e. Safari), then we manually import
+// the intl polyfill and locale data.
+if (!window.intl) {
+  require.ensure([
+    'intl',
+    'intl/locale-data/jsonp/en.js',
+    'intl/locale-data/jsonp/es.js',
+    'intl/locale-data/jsonp/fr.js',
+    'intl/locale-data/jsonp/it.js',
+  ], (require) => {
+    require('intl');
+    require('intl/locale-data/jsonp/en.js');
+    require('intl/locale-data/jsonp/es.js');
+    require('intl/locale-data/jsonp/fr.js');
+    require('intl/locale-data/jsonp/it.js');
+    render(
+      <IntlProvider locale={language} messages={messages}>
+        <App />
+      </IntlProvider>,
+      document.getElementById('root')
+    );
+  });
+} else {
+  render(
+    <IntlProvider locale={language} messages={messages}>
+      <App />
+    </IntlProvider>,
+    document.getElementById('root')
+  );
+}

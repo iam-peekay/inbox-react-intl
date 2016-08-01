@@ -1,0 +1,33 @@
+@import '~styles/base.scss';
+
+.widgets-container {
+  padding: 0;
+  margin: 40px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  color: #666A86;
+}
+
+.widget-header {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 500;
+  border-bottom: 1px solid #666A86;
+}
+
+.widget-body {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.widget-item-container {
+  padding: 15px;
+  margin: 20px;
+  background-color: #DCEDFF;
+  border: 2px solid;
+  border-radius: 5px;
+  text-align: center;
+  height: 250px;
+  width: 350px;
+}

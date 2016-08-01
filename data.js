@@ -1,29 +1,26 @@
 export default {
   name: 'Preethi',
-  notes: [
+  lastLogin: 'Sat Jul 30 2016 18:17:38 GMT-0700 (PDT)',
+  notifications: [
     {
       id: 1,
-      text: 'Draft agenda for engineering team meeting',
-      completed: false,
+      read: false,
       createdAt: 1469336316043,
     },
     {
       id: 2,
-      text: 'Fix user sign up flow bug (ABC-1234)',
-      completed: false,
+      read: false,
       createdAt: 1469336288833,
     },
     {
       id: 3,
-      text: 'Implement support for debit cards',
-      completed: true,
+      read: true,
       createdAt: 1469332088829,
     },
     {
       id: 4,
-      text: 'Send email regarding team meeting format',
-      completed: true,
-      createdAt: 1469332888903,
+      read: false,
+      createdAt: 1469332088732,
     },
   ],
 };

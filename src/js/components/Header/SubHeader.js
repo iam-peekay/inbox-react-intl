@@ -1,44 +1,52 @@
 import React, { Component, PropTypes } from 'react';
-import { FormattedMessage, FormattedPlural, FormattedNumber } from 'react-intl';
+import { FormattedMessage, FormattedPlural, FormattedNumber, FormattedRelative } from 'react-intl';
 import styles from './Header.scss';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 class SubHeader extends Component {
   render() {
-    const { unCompletedCount } = this.props;
+    const { unreadCount, lastLogin } = this.props;
 
     return (
       <div className={ cx('container') }>
         <div className={ cx('text', 'subheader-text') }>
           <FormattedMessage
-            id={ 'SubHeader.unCompletedCount' }
-            defaultMessage={ 'You have {unCompletedCount} uncompleted {notes}' }
+            id={ 'SubHeader.unreadCount' }
+            defaultMessage={ 'You have {unreadCount} new {notifications}' }
             values={{
-              unCompletedCount: (
+              unreadCount: (
                 <b>
                   <FormattedNumber
-                    value={unCompletedCount}
+                    value={unreadCount}
                   />
                 </b>
               ),
-              notes: (
+              notifications: (
                 <FormattedPlural
-                  value={unCompletedCount}
-                  one="note"
-                  other="notes"
+                  value={unreadCount}
+                  one="notification"
+                  other="notifications"
                 />
               ),
             }}
           />
         </div>
+        <span className={ cx('text', 'subheader-lastlogin') }>
+          <FormattedMessage
+            id={ 'SubHeader.lastLogin' }
+            defaultMessage={ 'You last logged in {time}!' }
+            values={{ time: <FormattedRelative value={lastLogin} /> }}
+          />
+        </span>
       </div>
     );
   }
 }
 
 SubHeader.propTypes = {
-  unCompletedCount: PropTypes.number.isRequired,
+  lastLogin: PropTypes.string.isRequired,
+  unreadCount: PropTypes.number.isRequired,
 };
 
 export default SubHeader;

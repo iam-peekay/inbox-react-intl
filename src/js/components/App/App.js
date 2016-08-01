@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import filter from 'lodash/filter';
 import Header from './../Header/index';
-import Notes from './../Notes/index';
+import Widgets from './../Widgets/index';
 import Data from './../../../../data';
 
 class App extends Component {
@@ -11,22 +11,21 @@ class App extends Component {
 
   state = {
     name: Data.name,
-    notes: Data.notes,
-    unCompletedCount: filter(Data.notes, ['completed', false]).length,
+    notifications: Data.notifications,
+    lastLogin: Data.lastLogin,
+    unreadCount: filter(Data.notifications, ['read', false]).length,
   }
 
   render() {
-    const { name, notes, unCompletedCount } = this.state;
+    const { name, unreadCount, lastLogin } = this.state;
     return (
       <div>
         <Header
           name={ name }
-          notes={ notes }
-          unCompletedCount={ unCompletedCount }
+          unreadCount={ unreadCount }
+          lastLogin={ lastLogin }
         />
-        <Notes
-          notes={ Data.notes }
-        />
+        <Widgets />
       </div>
     );
   }

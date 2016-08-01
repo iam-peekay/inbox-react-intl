@@ -12,12 +12,13 @@ class Header extends Component {
         <div className={ cx('text', 'header-text') }>
           <FormattedMessage
             id={ 'Header.greeting' }
-            defaultMessage={ 'Welcome to your notes, {name}!' }
+            defaultMessage={ 'Welcome to your dashboard, {name}!' }
             values={{ name: this.props.name }}
           />
         </div>
         <SubHeader
-          unCompletedCount={ this.props.unCompletedCount }
+          unreadCount={ this.props.unreadCount }
+          lastLogin={ this.props.lastLogin }
         />
       </div>
     );
@@ -26,7 +27,8 @@ class Header extends Component {
 
 Header.propTypes = {
   name: PropTypes.string.isRequired,
-  unCompletedCount: PropTypes.number.isRequired,
+  lastLogin: PropTypes.string.isRequired,
+  unreadCount: PropTypes.number.isRequired,
 };
 
 export default Header;
