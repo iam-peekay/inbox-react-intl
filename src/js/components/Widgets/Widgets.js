@@ -53,7 +53,7 @@ class Widgets extends Component {
               date: formatDate(currentDate, {
                 year: 'numeric',
                 month: 'long',
-                day: 'numeric'
+                day: 'numeric',
               }),
             }) }
           />
