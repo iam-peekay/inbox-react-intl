@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development node server.js",
-    "lint": "./node_modules/.bin/eslint src --fix"
+    "lint": "./node_modules/.bin/eslint src --fix",
     "build:langs": "./node_modules/.bin/babel-node src/utils/translator.js"
   },
   "author": "Preethi Kasireddy",

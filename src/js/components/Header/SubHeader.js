@@ -5,6 +5,11 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 class SubHeader extends Component {
+  static propTypes = {
+    lastLogin: PropTypes.string.isRequired,
+    unreadCount: PropTypes.number.isRequired,
+  }
+
   render() {
     const { unreadCount, lastLogin } = this.props;
 
@@ -43,10 +48,5 @@ class SubHeader extends Component {
     );
   }
 }
-
-SubHeader.propTypes = {
-  lastLogin: PropTypes.string.isRequired,
-  unreadCount: PropTypes.number.isRequired,
-};
 
 export default SubHeader;

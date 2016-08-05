@@ -6,29 +6,31 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 class Header extends Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    lastLogin: PropTypes.string.isRequired,
+    unreadCount: PropTypes.number.isRequired,
+  }
+
   render() {
+    const { name, unreadCount, lastLogin } = this.props;
+
     return (
       <div className={ cx('container') }>
         <div className={ cx('text', 'header-text') }>
           <FormattedMessage
             id={ 'Header.greeting' }
             defaultMessage={ 'Welcome to your dashboard, {name}!' }
-            values={{ name: this.props.name }}
+            values={{ name }}
           />
         </div>
         <SubHeader
-          unreadCount={ this.props.unreadCount }
-          lastLogin={ this.props.lastLogin }
+          unreadCount={ unreadCount }
+          lastLogin={ lastLogin }
         />
       </div>
     );
   }
 }
-
-Header.propTypes = {
-  name: PropTypes.string.isRequired,
-  lastLogin: PropTypes.string.isRequired,
-  unreadCount: PropTypes.number.isRequired,
-};
 
 export default Header;

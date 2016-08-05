@@ -41,6 +41,10 @@ const messages = defineMessages({
 });
 
 class Widgets extends Component {
+  static propTypes = {
+    intl: PropTypes.object.isRequired,
+  }
+
   render() {
     const { formatMessage, formatDate } = this.props.intl;
     const currentDate = Date.now();
@@ -80,9 +84,5 @@ class Widgets extends Component {
     );
   }
 }
-
-Widgets.propTypes = {
-  intl: PropTypes.object.isRequired,
-};
 
 export default injectIntl(Widgets);

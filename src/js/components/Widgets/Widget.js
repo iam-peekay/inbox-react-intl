@@ -4,6 +4,11 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 class Widget extends Component {
+  static propTypes = {
+    header: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+  }
+
   render() {
     const { header, body } = this.props;
 
@@ -19,10 +24,5 @@ class Widget extends Component {
     );
   }
 }
-
-Widget.propTypes = {
-  header: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-};
 
 export default Widget;
