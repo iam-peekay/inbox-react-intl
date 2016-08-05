@@ -1,6 +1,6 @@
 export default {
   name: 'Preethi',
-  lastLogin: 'Sat Jul 30 2016 18:17:38 GMT-0700 (PDT)',
+  lastLogin: 'Thu Aug 04 2016 19:58:19 GMT-0700 (PDT)',
   notifications: [
     {
       id: 1,

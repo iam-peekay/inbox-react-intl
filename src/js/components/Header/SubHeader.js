@@ -18,13 +18,13 @@ class SubHeader extends Component {
               unreadCount: (
                 <b>
                   <FormattedNumber
-                    value={unreadCount}
+                    value={ unreadCount }
                   />
                 </b>
               ),
               notifications: (
                 <FormattedPlural
-                  value={unreadCount}
+                  value={ unreadCount }
                   one="notification"
                   other="notifications"
                 />
@@ -32,13 +32,13 @@ class SubHeader extends Component {
             }}
           />
         </div>
-        <span className={ cx('text', 'subheader-lastlogin') }>
+        <div className={ cx('text', 'subheader-lastlogin') }>
           <FormattedMessage
             id={ 'SubHeader.lastLogin' }
-            defaultMessage={ 'You last logged in {time}!' }
-            values={{ time: <FormattedRelative value={lastLogin} /> }}
+            defaultMessage={ 'You last logged in {time}' }
+            values={{ time: <FormattedRelative value={ lastLogin } /> }}
           />
-        </span>
+        </div>
       </div>
     );
   }

@@ -48,28 +48,32 @@ class Widgets extends Component {
       <div className={ cx('widgets-container') }>
         <div className={ cx('widget-item-continer') }>
           <Widget
-            header={formatMessage(messages.widget1Header)}
-            body={formatMessage(messages.widget1Body, {
-              date: formatDate(currentDate, { year: 'numeric', month: 'long', day: 'numeric' }),
-            })}
+            header={ formatMessage(messages.widget1Header) }
+            body={ formatMessage(messages.widget1Body, {
+              date: formatDate(currentDate, {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              }),
+            }) }
           />
         </div>
         <div className={ cx('widget-item-continer') }>
           <Widget
-            header={formatMessage(messages.widget2Header)}
-            body={formatMessage(messages.widget2Body)}
+            header={ formatMessage(messages.widget2Header) }
+            body={ formatMessage(messages.widget2Body) }
           />
         </div>
         <div className={ cx('widget-item-continer') }>
           <Widget
-            header={formatMessage(messages.widget3Header)}
-            body={formatMessage(messages.widget3Body)}
+            header={ formatMessage(messages.widget3Header) }
+            body={ formatMessage(messages.widget3Body) }
           />
         </div>
         <div className={ cx('widget-item-continer') }>
           <Widget
-            header={formatMessage(messages.widget4Header)}
-            body={formatMessage(messages.widget4Body)}
+            header={ formatMessage(messages.widget4Header) }
+            body={ formatMessage(messages.widget4Body) }
           />
         </div>
       </div>
