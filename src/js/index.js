@@ -27,7 +27,7 @@ const messages = localeData[languageWithoutRegionCode] || localeData[language] |
 
 // If browser doesn't support Intl (i.e. Safari), then we manually import
 // the intl polyfill and locale data.
-if (!window.intl) {
+if (!window.Intl) {
   require.ensure([
     'intl',
     'intl/locale-data/jsonp/en.js',
