@@ -11,8 +11,7 @@
   "author": "Preethi Kasireddy",
   "license": "ISC",
   "devDependencies": {
-    "babel": "^6.5.2",
-    "babel-cli": "^6.11.4",
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.11.4",
     "babel-eslint": "^6.1.0",
     "babel-loader": "^6.2.4",
