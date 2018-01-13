@@ -21,7 +21,7 @@ const language = (navigator.languages && navigator.languages[0]) ||
 const languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
 
 // Try full locale, fallback to locale without region code, fallback to en
-const messages = localeData[languageWithoutRegionCode] || localeData[language] || localeData.en;
+const messages = localeData[language] || localeData[languageWithoutRegionCode] || localeData.en;
 
 // Render our root component into the div with id "root"
 
